@@ -5,11 +5,11 @@ module.exports = {
     mode: 'development',
     entry: './src/index.js',
     devtool: 'inline-source-map',
-    module:{
+    module: {
         rules: [
             {
                 test: /\.css$/,
-                use:  ['style-loader', 'css-loader'],
+                use: ['style-loader', 'css-loader'],
             },
             {
                 test: /\.ttf$/,
@@ -17,20 +17,21 @@ module.exports = {
             },
         ],
     },
-    devServer:{
+    devServer: {
         static: './dist',
     },
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Do-Thing',
+            favicon: './src/Content/myFavicon.ico',
         }),
     ],
-    output:{
+    output: {
         filename: '[name].js',
-        path: path.resolve(__dirname,'dist'),
+        path: path.resolve(__dirname, 'dist'),
         clean: true,
     },
-    optimization:{
+    optimization: {
         runtimeChunk: 'single',
     },
 }
