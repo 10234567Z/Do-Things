@@ -1,5 +1,5 @@
 import './style.css';
-import { addButton,addName } from './index.js';
+import { addButton,addName,taskContainer } from './index.js';
 import TaskMaker ,{ taskLibrary} from './tasks.js';
 
 let reClick = false;
@@ -10,6 +10,7 @@ export default function addTask(){
     ChangeDisplay();
     if(reClick){
         let task = new TaskMaker(addName.value , '', '' , '').AddToLibrary();
+        createTaskElement();
     }
     addName.value = '';
 }
@@ -28,4 +29,13 @@ function ChangeDisplay(){
         addButton.style.backgroundColor = '#7091A4'
         reClick = false
     }
+}
+
+
+function createTaskElement(){
+    let newTaskElement = document.createElement('div');
+    for(let i = 1 ;i <=taskLibrary.length ;i++){
+        newTaskElement.classList.add('task' , i);
+    }
+    taskContainer.append(newTaskElement);
 }
