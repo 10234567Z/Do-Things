@@ -7,10 +7,9 @@ let reClick = false;
 /** Change display then add book name and book to task library */
 export default function addTask(){
     ChangeDisplay();
-    if(reClick){
+    if(reClick && addName.value.trim() !== ''){
         new TaskMaker(addName.value , '', '' , '').AddToLibrary();
         createTaskElement(addName.value);
-        console.log(taskLibrary)
     }
     addName.value = '';
 }
