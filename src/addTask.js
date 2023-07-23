@@ -35,7 +35,9 @@ function ChangeDisplay(){
 function createTaskElement(){
     let newTaskElement = document.createElement('div');
     for(let i = 1 ;i <=taskLibrary.length ;i++){
-        newTaskElement.classList.add('task' , i);
+        if(i === taskLibrary.length){
+            newTaskElement.classList.add('task' , i);
+        }
     }
     taskContainer.append(newTaskElement);
 }
