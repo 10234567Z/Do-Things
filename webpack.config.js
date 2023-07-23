@@ -8,12 +8,12 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.css$/,
+                test: /\.css$/i,
                 use: ['style-loader', 'css-loader'],
             },
             {
                 test: /\.ttf$/,
-                use: 'asset/resource',
+                type: 'asset/resource',
             },
         ],
     },
