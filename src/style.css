@@ -77,3 +77,27 @@
     background-color: white;
     font-family: 'pangolin', cursive;
 }
+
+.taskContainer{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.task{
+    display: flex;
+    width: 50%;
+    height: 75px;
+    border-radius: 20px;
+    background-color: blanchedalmond;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}

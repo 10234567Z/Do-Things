@@ -3,14 +3,14 @@ import { addButton,addName,taskContainer } from './index.js';
 import TaskMaker ,{ taskLibrary} from './tasks.js';
 
 let reClick = false;
-let name = '';
 
 /** Change display then add book name and book to task library */
 export default function addTask(){
     ChangeDisplay();
     if(reClick){
-        let task = new TaskMaker(addName.value , '', '' , '').AddToLibrary();
-        createTaskElement();
+        new TaskMaker(addName.value , '', '' , '').AddToLibrary();
+        createTaskElement(addName.value);
+        console.log(taskLibrary)
     }
     addName.value = '';
 }
@@ -32,12 +32,22 @@ function ChangeDisplay(){
 }
 
 
-function createTaskElement(){
-    let newTaskElement = document.createElement('div');
+function createTaskElement(taskName){
+    let newTaskElement = document.createElement('div'),
+              checkbox = document.createElement('input'),
+                 title = document.createElement('div'),
+              priority = document.createElement('select'),
+                  todo = document.createElement('div');   
     for(let i = 1 ;i <=taskLibrary.length ;i++){
         if(i === taskLibrary.length){
             newTaskElement.classList.add('task' , i);
         }
     }
+
+    title.classList.add('title');
+    title.innerHTML = taskName;
+    todo.classList.add('todoList');
+    checkbox.type = 'checkbox';
     taskContainer.append(newTaskElement);
+    newTaskElement.append(checkbox , title);
 }
