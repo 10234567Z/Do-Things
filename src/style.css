@@ -116,6 +116,7 @@ input[type="checkbox"]{
     height: 35px;
     border-radius: 100%;
     background-color: aliceblue;
+    transition: 0.4s all linear;
 }
 
 input[type="checkbox"]:checked{
