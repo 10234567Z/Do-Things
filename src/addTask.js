@@ -33,6 +33,7 @@ function ChangeDisplay(){
 
 function createTaskElement(taskName){
     let newTaskElement = document.createElement('div'),
+         indvContainer = document.createElement('div'),
               checkbox = document.createElement('input'),
                  title = document.createElement('div'),
               priority = document.createElement('select'),
@@ -40,6 +41,7 @@ function createTaskElement(taskName){
     for(let i = 1 ;i <=taskLibrary.length ;i++){
         if(i === taskLibrary.length){
             newTaskElement.classList.add('task' , i);
+            indvContainer.classList.add('indv' , 'taskContainer' , i);
         }
     }
 
@@ -47,6 +49,7 @@ function createTaskElement(taskName){
     title.innerHTML = taskName;
     todo.classList.add('todoList');
     checkbox.type = 'checkbox';
-    taskContainer.append(newTaskElement);
+    taskContainer.append(indvContainer);
+    indvContainer.append(newTaskElement);
     newTaskElement.append(checkbox , title);
 }
