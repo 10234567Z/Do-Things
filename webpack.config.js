@@ -12,7 +12,11 @@ module.exports = {
                 use: ['style-loader', 'css-loader'],
             },
             {
-                test: /\.ttf$/,
+                test: /\.ttf$/i,
+                type: 'asset/resource',
+            },
+            {
+                test: /\.svg$/i,
                 type: 'asset/resource',
             },
         ],

@@ -90,6 +90,7 @@
     width: 100%;
     height: 100%;
     gap: 10px;
+    flex:1;
 }
 
 .task{
@@ -102,7 +103,7 @@
     flex-wrap: wrap;
     flex-direction: row;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     padding: 10px;
     gap: 15px;
 }
@@ -124,4 +125,12 @@ input[type="checkbox"]{
 
 input[type="checkbox"]:checked{
     background-color: rgb(116, 16, 46);
+}
+
+input[type="date"]{
+    height: 35px;
+    outline: none !important;
+    border: 2px red solid;
+    padding: 5px;
+    border-radius: 10px;
 }

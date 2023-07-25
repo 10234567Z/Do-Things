@@ -21,6 +21,7 @@ export let addName = document.createElement('input');
 addName.type = 'text';
 addName.classList.add('addName');
 addName.placeholder = 'Click on [ADD] button after naming task';
+addName.maxLength = 20;
 
 let projectHeadBar = document.createElement('div');
 projectHeadBar.classList.add('project','headBar');
@@ -30,9 +31,14 @@ projectHeadBar.append(projectHeader);
 
 export let taskContainer = document.createElement('div');
 taskContainer.classList.add('taskContainer');
+taskContainer.classList.con
 
 addButton.addEventListener('click' , e =>{
     addTask();
+})
+
+document.addEventListener('click' , e => {
+
 })
 
 

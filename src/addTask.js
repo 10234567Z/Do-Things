@@ -1,6 +1,7 @@
 import './style.css';
 import { addButton,addName,taskContainer } from './index.js';
 import TaskMaker ,{ taskLibrary} from './tasks.js';
+import deleteIcon from './Content/delete.svg'
 
 let reClick = false;
 
@@ -37,7 +38,9 @@ function createTaskElement(taskName){
               checkbox = document.createElement('input'),
                  title = document.createElement('div'),
               priority = document.createElement('select'),
-                  todo = document.createElement('div');   
+                  todo = document.createElement('div'),
+                   del = document.createElement('button'),
+                  date = document.createElement('input') 
     for(let i = 1 ;i <=taskLibrary.length ;i++){
         if(i === taskLibrary.length){
             newTaskElement.classList.add('task' , i);
@@ -45,11 +48,22 @@ function createTaskElement(taskName){
         }
     }
 
+    date.type = 'date';
+    date.classList.add('deadline');
+    // del.classList.add('delete');
+    // del.innerHTML = 'Delete'
+
+    let delIcon = new Image();
+    delIcon.src = deleteIcon;
+    delIcon.width = 35;
+    delIcon.height = 35;
+    delIcon.classList.add('deleteIcon');
+
     title.classList.add('title');
     title.innerHTML = taskName;
     todo.classList.add('todoList');
     checkbox.type = 'checkbox';
     taskContainer.append(indvContainer);
     indvContainer.append(newTaskElement);
-    newTaskElement.append(checkbox , title);
+    newTaskElement.append(checkbox , title,date,delIcon);
 }
