@@ -99,13 +99,11 @@
     height: 75px;
     border-radius: 20px;
     background-color: blanchedalmond;
-    display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     padding: 10px;
-    gap: 15px;
+    gap: 5px;
 }
 
 .title{
@@ -133,4 +131,20 @@ input[type="date"]{
     border: 2px red solid;
     padding: 5px;
     border-radius: 10px;
+}
+
+.deleteIcon,.plusIcon{
+    flex: 1;
+    align-self: flex-end;
+}
+
+
+.iconCont{
+    flex-wrap: wrap;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 7px;
 }

@@ -2,6 +2,7 @@ import './style.css';
 import { addButton,addName,taskContainer } from './index.js';
 import TaskMaker ,{ taskLibrary} from './tasks.js';
 import deleteIcon from './Content/delete.svg'
+import plus from './Content/plus.svg';
 
 let reClick = false;
 
@@ -9,7 +10,7 @@ let reClick = false;
 export default function addTask(){
     ChangeDisplay();
     if(reClick && addName.value.trim() !== ''){
-        new TaskMaker(addName.value , '', '' , '').AddToLibrary();
+        new TaskMaker(addName.value , '', '').AddToLibrary();
         createTaskElement(addName.value);
     }
     addName.value = '';
@@ -36,11 +37,7 @@ function createTaskElement(taskName){
     let newTaskElement = document.createElement('div'),
          indvContainer = document.createElement('div'),
               checkbox = document.createElement('input'),
-                 title = document.createElement('div'),
-              priority = document.createElement('select'),
-                  todo = document.createElement('div'),
-                   del = document.createElement('button'),
-                  date = document.createElement('input') 
+                 title = document.createElement('div')
     for(let i = 1 ;i <=taskLibrary.length ;i++){
         if(i === taskLibrary.length){
             newTaskElement.classList.add('task' , i);
@@ -48,22 +45,27 @@ function createTaskElement(taskName){
         }
     }
 
-    date.type = 'date';
-    date.classList.add('deadline');
-    // del.classList.add('delete');
-    // del.innerHTML = 'Delete'
 
     let delIcon = new Image();
     delIcon.src = deleteIcon;
-    delIcon.width = 35;
-    delIcon.height = 35;
+    delIcon.width = 55;
+    delIcon.height = 55;
     delIcon.classList.add('deleteIcon');
+
+    let plusIcon = new Image();
+    plusIcon.src = plus;
+    plusIcon.width = 55;
+    plusIcon.height = 55;
+    plusIcon.classList.add('plusIcon');
+
+    let iconContainer = document.createElement('div');
+    iconContainer.classList.add('iconCont');
+    iconContainer.append(plusIcon,delIcon);
 
     title.classList.add('title');
     title.innerHTML = taskName;
-    todo.classList.add('todoList');
     checkbox.type = 'checkbox';
     taskContainer.append(indvContainer);
     indvContainer.append(newTaskElement);
-    newTaskElement.append(checkbox , title,date,delIcon);
+    newTaskElement.append(checkbox , title,iconContainer);
 }

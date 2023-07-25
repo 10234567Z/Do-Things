@@ -1,5 +1,7 @@
 import './style.css';
 import addTask from './addTask.js'
+import Todo from './todoAdd';
+import { buildTodo } from './todoAdd';
 
 let container = document.createElement('div');
 container.classList.add('container');
@@ -37,10 +39,16 @@ addButton.addEventListener('click' , e =>{
     addTask();
 })
 
+export let todoTask
+
 document.addEventListener('click' , e => {
-
+    if(e.target.classList.contains('plusIcon')){
+        let taskNode = e.target.parentNode.parentNode;
+        let name = taskNode.getElementsByTagName('div')[0].innerHTML
+        todoTask = taskNode;
+        buildTodo(name);
+    }
 })
-
 
 addBar.append(addButton,addName);
 
