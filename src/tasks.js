@@ -1,12 +1,11 @@
 
-export let taskLibrary = [];
+export let projectLibrary = [];
 
-export default function Task(name, description, duedate) {
+export default function Task(name,status) {
+    this.status = status;
     this.name = name;
-    this.description = description;
-    this.duedate = duedate;
     this.AddToLibrary = () => {
-        let task = { name , description , duedate};
-        taskLibrary.push(task);
+        let project = { name , status};
+        projectLibrary.push(project);
     }
 }

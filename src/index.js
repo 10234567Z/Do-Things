@@ -1,6 +1,7 @@
 import './style.css';
+import addProjectUI,{addProject} from './addProject.js'
 
-let container = document.createElement('div');
+export let container = document.createElement('div');
 container.classList.add('container');
 document.querySelector('body').appendChild(container);
 
@@ -11,7 +12,7 @@ sideHead.innerHTML = 'Projects';
 let sideBar = document.createElement('div');
 sideBar.classList.add('sidebar');
 
-let projectContainer = document.createElement('div');
+export let projectContainer = document.createElement('div');
 projectContainer.classList.add('projectContainer');
 
 let addButton = document.createElement('button');
@@ -23,6 +24,9 @@ container.append(sideHead,sideBar)
 
 document.addEventListener('click' , e=>{
     if(e.target.classList.contains('addProject')){
-        
+        addProjectUI();
+    }
+    if(e.target.classList.contains('submit')){
+        addProject(document.querySelector('#title'));
     }
 })

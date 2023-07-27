@@ -43,7 +43,7 @@
     place-items: center;
 }
 
-.addProject{
+.addProject,.submit{
     height: 45px;
     width: 100px;
     border-radius: 13px;
@@ -53,15 +53,65 @@
     transition: 0.2s all linear;
 }
 
-.addProject:hover{
+.addProject:hover,.submit:hover{
     background-color: #5FBE9E;
 }
 
-.addProject:active{
+.addProject:active,.submit:active{
     background-color: #509F85;
 }
 
 .projectContainer{
     width: 100%;
     height: 100%;
+}
+
+.formBG{
+    top: 0;
+    left: 0;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+    background-color: white;
+    opacity: 0.8;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+textarea{
+    resize: none;
+}
+
+input[type="text"]{
+    height: 35px;
+    width: 95%;
+    border-radius: 15px;
+    border: 2px ridge cornflowerblue;
+    padding: 5px;
+    font-size: 1.3rem;
+}
+
+.formArea{
+    display: flex;
+    height: 250px;
+    flex-direction: column;
+    place-items: center;
+    gap: 5px;
+}
+
+label{
+    text-align: center;
+    width: 100%;
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.submit{
+    height: 25px;
+    width: 90px;
+    font-size: 1.1rem;
 }
