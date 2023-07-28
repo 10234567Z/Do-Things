@@ -1,5 +1,6 @@
 import './style.css';
 import addProjectUI,{addProject} from './addProject.js'
+import deleteProject from './deleteProject.js'
 
 export let container = document.createElement('div');
 container.classList.add('container');
@@ -31,6 +32,11 @@ document.addEventListener('click' , e=>{
     }
     if(e.target.classList.contains('formBG')){
         e.target.remove();
+    }
+    if(e.target.classList.contains('delProject')){
+        let projectName = e.target.parentNode.getElementsByTagName('div')[0].innerHTML;
+        deleteProject(projectName);
+        e.target.parentNode.remove();
     }
 })
 
