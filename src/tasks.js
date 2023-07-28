@@ -1,7 +1,7 @@
 
 export let projectLibrary = [];
 
-export default function Task(name,status) {
+export default function Project(name,status) {
     this.status = status;
     this.name = name;
     this.AddToLibrary = () => {

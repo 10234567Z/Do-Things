@@ -27,6 +27,15 @@ document.addEventListener('click' , e=>{
         addProjectUI();
     }
     if(e.target.classList.contains('submit')){
-        addProject(document.querySelector('#title'));
+        addProject(document.querySelector('.title'));
+    }
+    if(e.target.classList.contains('formBG')){
+        e.target.remove();
+    }
+})
+
+document.addEventListener('keypress' , e=>{
+    if(e.key === 'Enter'){
+        e.preventDefault();
     }
 })
