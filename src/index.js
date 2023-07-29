@@ -42,7 +42,6 @@ document.addEventListener('click' , e=>{
     if(e.target.classList.contains('genTitle')){
         e.target.parentNode.getElementsByTagName('p')[0].style.display = 'none';
         let inputEL = e.target.parentNode.getElementsByTagName('input')[0];
-        inputEL.select();
         inputEL.style.display = 'block';
         changePName(inputEL);
     }
