@@ -38,6 +38,10 @@ document.addEventListener('click' , e=>{
         deleteProject(projectName);
         e.target.parentNode.remove();
     }
+    if(e.target.classList.contains('genTitle')){
+        e.target.parentNode.getElementsByTagName('p')[0].style.display = 'none';
+        e.target.parentNode.getElementsByTagName('input')[0].style.display = 'block';
+    }
 })
 
 document.addEventListener('keypress' , e=>{
