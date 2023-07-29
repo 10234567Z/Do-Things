@@ -1,6 +1,7 @@
 import './style.css';
 import addProjectUI,{addProject} from './addProject.js'
 import deleteProject from './deleteProject.js'
+import changePName from './changeName.js'
 
 export let container = document.createElement('div');
 container.classList.add('container');
@@ -40,7 +41,10 @@ document.addEventListener('click' , e=>{
     }
     if(e.target.classList.contains('genTitle')){
         e.target.parentNode.getElementsByTagName('p')[0].style.display = 'none';
-        e.target.parentNode.getElementsByTagName('input')[0].style.display = 'block';
+        let inputEL = e.target.parentNode.getElementsByTagName('input')[0];
+        inputEL.select();
+        inputEL.style.display = 'block';
+        changePName(inputEL);
     }
 })
 
