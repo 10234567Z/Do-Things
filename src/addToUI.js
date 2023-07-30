@@ -18,6 +18,7 @@ export default function(){
         editName.type = 'text';
         editName.value = projectLibrary[i].name;
         editName.style.display = 'none';
+        editName.maxLength = 20;
 
         projectName.append(title,editName);
 
