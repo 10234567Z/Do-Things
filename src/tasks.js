@@ -1,5 +1,8 @@
 
 export let projectLibrary = [];
+export let currentProject = {
+    name: ''
+};
 
 export default function Project(name,status) {
     this.status = status;
@@ -7,5 +10,6 @@ export default function Project(name,status) {
     this.AddToLibrary = () => {
         let project = { name , status};
         projectLibrary.push(project);
+        currentProject.name = name;
     }
 }

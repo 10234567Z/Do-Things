@@ -1,7 +1,9 @@
 import './style.css';
-import addProjectUI,{addProject} from './addProject.js'
+import addProjectUI, { addProject } from './addProject.js'
 import deleteProject from './deleteProject.js'
 import changePName from './changeName.js'
+import TodoForm from './todoAdd';
+import { currentProject, projectLibrary } from './tasks';
 
 export let container = document.createElement('div');
 container.classList.add('container');
@@ -26,7 +28,7 @@ taskHead.classList.add('taskHead');
 taskHead.innerHTML = 'Tasks'
 
 let addTask = document.createElement('button');
-addTask.classList.add('addProject' , 'addTask');
+addTask.classList.add('addProject', 'addTask');
 addTask.innerHTML = "Add Task"
 
 let taskContainer = document.createElement('div');
@@ -34,35 +36,43 @@ taskContainer.classList.add('taskContainer');
 
 let taskArea = document.createElement('div');
 taskArea.classList.add('taskArea');
-taskArea.append(addTask,taskContainer)
-sideBar.append(addButton,projectContainer)
-container.append(sideHead,sideBar,taskHead,taskArea)
+taskArea.append(addTask, taskContainer)
+sideBar.append(addButton, projectContainer)
+container.append(sideHead, sideBar, taskHead, taskArea)
+taskArea.style.display = 'none';
+taskHead.style.display = 'none';
 
-document.addEventListener('click' , e=>{
-    if(e.target.classList.contains('addProject')){
+document.addEventListener('click', e => {
+    if (e.target.classList.contains('addProject') && !(e.target.classList.contains('addTask'))) {
         addProjectUI();
     }
-    if(e.target.classList.contains('submit')){
+    if (e.target.classList.contains('submit')) {
         addProject(document.querySelector('.title'));
     }
-    if(e.target.classList.contains('formBG')){
+    if (e.target.classList.contains('formBG')) {
         e.target.remove();
     }
-    if(e.target.classList.contains('delProject')){
+    if (e.target.classList.contains('delProject')) {
         let projectName = e.target.parentNode.getElementsByTagName('div')[0].innerHTML;
         deleteProject(projectName);
         e.target.parentNode.remove();
     }
-    if(e.target.classList.contains('genTitle')){
+    if (e.target.classList.contains('genTitle')) {
         e.target.parentNode.getElementsByTagName('p')[0].style.display = 'none';
         let inputEL = e.target.parentNode.getElementsByTagName('input')[0];
         inputEL.style.display = 'block';
         changePName(inputEL);
     }
+    if (e.target.classList.contains('projectDIV')) {
+        currentProject.name = e.target.getElementsByTagName('div')[0].getElementsByTagName('p')[0].innerHTML;
+    }
+    if (e.target.classList.contains('addTask')) {
+        TodoForm(currentProject.name)
+    }
 })
 
-document.addEventListener('keypress' , e=>{
-    if(e.key === 'Enter'){
+document.addEventListener('keypress', e => {
+    if (e.key === 'Enter') {
         e.preventDefault();
     }
 })
