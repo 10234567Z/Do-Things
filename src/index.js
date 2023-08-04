@@ -65,6 +65,7 @@ document.addEventListener('click', e => {
     }
     if (e.target.classList.contains('projectDIV')) {
         currentProject.name = e.target.getElementsByTagName('div')[0].getElementsByTagName('p')[0].innerHTML;
+        console.log(currentProject)
     }
     if (e.target.classList.contains('addTask')) {
         TodoForm(currentProject.name)

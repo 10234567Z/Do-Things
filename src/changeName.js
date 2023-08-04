@@ -1,4 +1,4 @@
-import { projectLibrary } from "./tasks";
+import { projectLibrary, currentProject } from "./tasks";
 
 export default function (input) {
     input.select();
@@ -9,6 +9,7 @@ export default function (input) {
             input.parentNode.getElementsByTagName('p')[0].innerHTML = input.value;
             input.parentNode.getElementsByTagName('p')[0].style.display = 'block';
             projectLibrary[index].name = input.value
+            currentProject.name = input.value;
         }
     })
 }
