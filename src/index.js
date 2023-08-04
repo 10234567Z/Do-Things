@@ -4,6 +4,7 @@ import deleteProject from './deleteProject.js'
 import changePName from './changeName.js'
 import TodoForm from './todoAdd';
 import { currentProject, projectLibrary } from './tasks';
+import updateTaskUI from './updateTask';
 
 export let container = document.createElement('div');
 container.classList.add('container');
@@ -23,7 +24,7 @@ let addButton = document.createElement('button');
 addButton.classList.add('addProject');
 addButton.innerHTML = "Add"
 
-let taskHead = document.createElement('h1');
+export let taskHead = document.createElement('h1');
 taskHead.classList.add('taskHead');
 taskHead.innerHTML = 'Tasks'
 
@@ -34,7 +35,7 @@ addTask.innerHTML = "Add Task"
 let taskContainer = document.createElement('div');
 taskContainer.classList.add('taskContainer');
 
-let taskArea = document.createElement('div');
+export let taskArea = document.createElement('div');
 taskArea.classList.add('taskArea');
 taskArea.append(addTask, taskContainer)
 sideBar.append(addButton, projectContainer)
@@ -70,6 +71,8 @@ document.addEventListener('click', e => {
     if (e.target.classList.contains('addTask')) {
         TodoForm(currentProject.name)
     }
+    updateTaskUI();
+    console.log(currentProject)
 })
 
 document.addEventListener('keypress', e => {

@@ -25,7 +25,7 @@ export default function(){
         let deleteDIV = document.createElement('div');
         deleteDIV.classList.add('delProject');
         deleteDIV.innerHTML = 'X';
-        newProject.append(projectName,deleteDIV)
+        newProject.append(projectName,deleteDIV);
         projectContainer.append(newProject);
     }
 }
