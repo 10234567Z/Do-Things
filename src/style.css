@@ -23,6 +23,10 @@
     font-size: 3rem;
 }
 
+.taskHead{
+    font-family: "tektur" , cursive;
+}
+
 .sidebar{
     grid-area: 2/1/3/2;
     border-right: 1px ridge rgba(0, 0, 0, 0.6);
@@ -44,7 +48,7 @@
     gap: 10px;
 }
 
-.addProject,.submit{
+.addProject,.submit,.submitTask{
     height: 45px;
     width: 100px;
     border-radius: 13px;
@@ -54,11 +58,11 @@
     transition: 0.2s all linear;
 }
 
-.addProject:hover,.submit:hover{
+.addProject:hover,.submit:hover,.submitTask:hover{
     background-color: #5FBE9E;
 }
 
-.addProject:active,.submit:active{
+.addProject:active,.submit:active,.submitTask:active{
     background-color: #509F85;
 }
 
@@ -148,7 +152,7 @@ label{
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.submit{
+.submit,.submitTask{
     height: 25px;
     width: 90px;
     font-size: 1.1rem;
@@ -171,4 +175,12 @@ label{
 .addTask{
     padding: 5px;
     font-size: medium;
+}
+
+
+input[type='date']{
+    padding: 5px;
+    border-radius: 7px;
+    outline: none !important;
+    border: 2px ridge rgba(0, 0, 0, 0.4);
 }

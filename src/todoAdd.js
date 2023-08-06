@@ -29,6 +29,14 @@ export default function TodoForm(name){
     projectName.classList.add('title');
     projectName.maxLength = '40'
 
+    let dateLabel = document.createElement('label');
+    dateLabel.setAttribute('for', 'dueDate');
+    dateLabel.innerHTML = 'Due Date';
+    let dueDate = document.createElement('input');
+    dueDate.type = 'date';
+    dueDate.setAttribute('for', 'dueDate');
+    dueDate.classList.add('dueDate');
+
     let submitButton = document.createElement('button');
     submitButton.classList.add('submitTask');
     submitButton.innerHTML = 'Submit';
@@ -36,5 +44,5 @@ export default function TodoForm(name){
     let formArea = document.createElement('div');
     formArea.classList.add('formArea');
     formBG.append(formArea);
-    formArea.append(nameLabel, projectName, submitButton);
+    formArea.append(nameLabel, projectName, dateLabel,dueDate, submitButton);
 }

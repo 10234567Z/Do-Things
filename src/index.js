@@ -72,7 +72,6 @@ document.addEventListener('click', e => {
         TodoForm(currentProject.name)
     }
     updateTaskUI();
-    console.log(currentProject)
 })
 
 document.addEventListener('keypress', e => {
