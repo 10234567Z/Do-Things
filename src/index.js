@@ -2,9 +2,10 @@ import './style.css';
 import addProjectUI, { addProject } from './addProject.js'
 import deleteProject from './deleteProject.js'
 import changePName from './changeName.js'
-import TodoForm from './todoAdd';
-import { currentProject, projectLibrary } from './tasks';
-import updateTaskUI from './updateTask';
+import TodoForm, { Todo } from './todoAdd.js';
+import { currentProject, projectLibrary } from './tasks.js';
+import updateTaskUI from './updateTask.js';
+import DateSelector, { dateSet } from './jquery.js';
 
 export let container = document.createElement('div');
 container.classList.add('container');
@@ -70,6 +71,15 @@ document.addEventListener('click', e => {
     }
     if (e.target.classList.contains('addTask')) {
         TodoForm(currentProject.name)
+    }
+    if (e.target.classList.contains('dueDate')) {
+        DateSelector();
+    }
+    if (e.target.classList.contains('submitTask')) {
+        let dueDate = e.target.parentNode.getElementsByTagName('input')[1].value;
+        let taskName = e.target.parentNode.getElementsByTagName('input')[0].value;
+        new Todo(taskName, dueDate).AddToDo();
+        e.target.parentNode.parentNode.remove();
     }
     updateTaskUI();
 })

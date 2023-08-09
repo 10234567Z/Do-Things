@@ -8,7 +8,8 @@ export default function Project(name,status) {
     this.status = status;
     this.name = name;
     this.AddToLibrary = () => {
-        let project = { name , status};
+        let todoArea = [];
+        let project = { name , status , todoArea };
         projectLibrary.push(project);
         currentProject.name = name;
     }
