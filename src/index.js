@@ -6,6 +6,7 @@ import TodoForm, { Todo } from './todoAdd.js';
 import { currentProject, projectLibrary } from './tasks.js';
 import updateTaskUI from './updateTask.js';
 import DateSelector, { dateSet } from './jquery.js';
+import UIMaker from './addToUI'
 
 export let container = document.createElement('div');
 container.classList.add('container');
@@ -33,7 +34,7 @@ let addTask = document.createElement('button');
 addTask.classList.add('addProject', 'addTask');
 addTask.innerHTML = "Add Task"
 
-let taskContainer = document.createElement('div');
+export let taskContainer = document.createElement('div');
 taskContainer.classList.add('taskContainer');
 
 export let taskArea = document.createElement('div');
@@ -79,6 +80,7 @@ document.addEventListener('click', e => {
         let dueDate = e.target.parentNode.getElementsByTagName('input')[1].value;
         let taskName = e.target.parentNode.getElementsByTagName('input')[0].value;
         new Todo(taskName, dueDate).AddToDo();
+        UIMaker();
         e.target.parentNode.parentNode.remove();
     }
     updateTaskUI();

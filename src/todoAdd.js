@@ -3,7 +3,6 @@ import DateSelector, { dateSet } from "./jquery";
 
 
 export function Todo(title, date) {
-    console.log(projectLibrary)
     this.title = title;
     this.date = date;
     this.AddToDo = () => {

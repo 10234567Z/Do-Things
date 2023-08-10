@@ -1,10 +1,10 @@
-import {projectLibrary} from "./tasks";
-import { projectContainer } from "./index.js";
+import { projectLibrary } from "./tasks";
+import { projectContainer, taskContainer } from "./index.js";
 
 
-export default function(){
+export default function () {
     projectContainer.innerHTML = ''
-    for(let i = 0; i < projectLibrary.length;i++){
+    for (let i = 0; i < projectLibrary.length; i++) {
         let newProject = document.createElement('div');
         newProject.classList.add('projectDIV');
         let projectName = document.createElement('div');
@@ -20,12 +20,34 @@ export default function(){
         editName.style.display = 'none';
         editName.maxLength = 20;
 
-        projectName.append(title,editName);
+        projectName.append(title, editName);
 
         let deleteDIV = document.createElement('div');
         deleteDIV.classList.add('delProject');
         deleteDIV.innerHTML = 'X';
-        newProject.append(projectName,deleteDIV);
+        newProject.append(projectName, deleteDIV);
         projectContainer.append(newProject);
+        console.log( projectLibrary[i].todoArea)
+        for(let j = 0 ; j < projectLibrary[i].todoArea.length; j++){
+            let newTask = document.createElement('div');
+            newTask.classList.add('taskProjectDIV');
+            let taskName = document.createElement('div');
+            taskName.classList.add('taskName')
+
+            let taskTitle = document.createElement('p');
+            taskTitle.classList.add('taskTitle');
+            taskTitle.innerHTML = projectLibrary[i].todoArea[j].title;
+
+            let editTaskName = document.createElement('input');
+            editTaskName.type = 'text';
+            editTaskName.value = projectLibrary[i].todoArea[j].title;
+            editTaskName.style.display = 'none';
+            editTaskName.maxLength = 50;
+
+            taskName.append(taskTitle, editTaskName);
+            newTask.append(taskName)
+            taskContainer.append(newTask)
+            console.log('reached')
+        }
     }
 }
