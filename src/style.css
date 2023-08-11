@@ -75,7 +75,7 @@
     align-items: center;
     flex-wrap: wrap;
 }
-.projectDIV{
+.projectDIV,.taskDIV{
     display: flex;
     flex-direction: row;
     width: 65%;
@@ -92,6 +92,14 @@
 
 .projectDIV:hover{
     background-color: rgba(0, 0, 0, 0.3);
+}
+
+.taskDIV{
+    background-color: rgba(238, 209, 44, 0.377);
+}
+
+.taskDIV:hover{
+    background-color: rgba(238, 209, 44, 0.477);
 }
 
 .delProject{
@@ -183,4 +191,12 @@ input[type='date']{
     border-radius: 7px;
     outline: none !important;
     border: 2px ridge rgba(0, 0, 0, 0.4);
+}
+
+.dateCont{
+    align-self: flex-end;
+}
+
+.dateText{
+    font-family: Arial, Helvetica, sans-serif;
 }

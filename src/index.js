@@ -3,9 +3,9 @@ import addProjectUI, { addProject } from './addProject.js'
 import deleteProject from './deleteProject.js'
 import changePName from './changeName.js'
 import TodoForm, { Todo } from './todoAdd.js';
-import { currentProject, projectLibrary } from './tasks.js';
+import { currentProject} from './tasks.js';
 import updateTaskUI from './updateTask.js';
-import DateSelector, { dateSet } from './jquery.js';
+import DateSelector from './jquery.js';
 import UIMaker from './addToUI'
 
 export let container = document.createElement('div');
@@ -68,7 +68,7 @@ document.addEventListener('click', e => {
     }
     if (e.target.classList.contains('projectDIV')) {
         currentProject.name = e.target.getElementsByTagName('div')[0].getElementsByTagName('p')[0].innerHTML;
-        console.log(currentProject)
+        UIMaker();
     }
     if (e.target.classList.contains('addTask')) {
         TodoForm(currentProject.name)
@@ -79,8 +79,10 @@ document.addEventListener('click', e => {
     if (e.target.classList.contains('submitTask')) {
         let dueDate = e.target.parentNode.getElementsByTagName('input')[1].value;
         let taskName = e.target.parentNode.getElementsByTagName('input')[0].value;
-        new Todo(taskName, dueDate).AddToDo();
-        UIMaker();
+        if(dueDate.trim() !== '' && taskName.trim() !== ''){
+            new Todo(taskName, dueDate).AddToDo();
+            UIMaker();
+        }
         e.target.parentNode.parentNode.remove();
     }
     updateTaskUI();
