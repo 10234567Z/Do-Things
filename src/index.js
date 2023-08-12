@@ -4,7 +4,7 @@ import deleteProject from './deleteProject.js'
 import changePName, { taskName } from './changeName.js'
 import TodoForm, { Todo } from './todoAdd.js';
 import { currentProject} from './tasks.js';
-import updateTaskUI from './updateTask.js';
+import updateTaskUI, { delTask } from './updateTask.js';
 import DateSelector, { dateSet } from './jquery.js';
 import UIMaker from './addToUI'
 
@@ -57,7 +57,6 @@ document.addEventListener('click', e => {
     }
     if (e.target.classList.contains('delProject')) {
         let projectName = e.target.parentNode.getElementsByTagName('div')[0].getElementsByTagName('p')[0].innerHTML;
-        console.log(projectName)
         deleteProject(projectName);
         e.target.parentNode.remove();
     }
@@ -96,7 +95,9 @@ document.addEventListener('click', e => {
         DateSelector(inputEL);
     }
     if(e.target.classList.contains('delTask')){
-
+        let taskName = e.target.parentNode.parentNode.getElementsByTagName('div')[0].getElementsByTagName('p')[0].innerHTML;
+        delTask(taskName);
+        e.target.parentNode.parentNode.remove();
     }
     updateTaskUI();
 })

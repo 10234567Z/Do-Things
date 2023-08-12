@@ -105,7 +105,7 @@
 
 .delProject,.delTask{
     font-family: 'pangolin';
-    border-radius: 50%;
+    border-radius: 8px;
     transition: 0.2s all linear;
     padding-left: 10px;
     padding-right: 10px;
@@ -114,7 +114,6 @@
     align-items: center;
     color: red;
 }
-
 .delProject:hover,.delTask:hover{
     background-color: rgba(0, 0, 0, 0.4);
 }

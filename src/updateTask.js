@@ -1,4 +1,4 @@
-import { currentProject } from "./tasks";
+import { currentProject, projectLibrary } from "./tasks";
 import { taskArea,taskHead } from "./index.js";
 
 
@@ -16,5 +16,7 @@ export default function updateTaskUI(){
 
 
 export function delTask(input){
-
+    let index = projectLibrary.findIndex(e => currentProject.name === e.name)
+    let innerIndex = projectLibrary[index].todoArea.findIndex(x => x.title === input.value);
+    projectLibrary[index].todoArea.splice(innerIndex , 1);
 }
