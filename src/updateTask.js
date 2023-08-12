@@ -15,6 +15,6 @@ export default function updateTaskUI(){
 }
 
 
-export function updateDate(input){
+export function delTask(input){
 
 }

@@ -56,7 +56,8 @@ document.addEventListener('click', e => {
         e.target.remove();
     }
     if (e.target.classList.contains('delProject')) {
-        let projectName = e.target.parentNode.getElementsByTagName('div')[0].innerHTML;
+        let projectName = e.target.parentNode.getElementsByTagName('div')[0].getElementsByTagName('p')[0].innerHTML;
+        console.log(projectName)
         deleteProject(projectName);
         e.target.parentNode.remove();
     }
@@ -93,6 +94,9 @@ document.addEventListener('click', e => {
         let inputEL = e.target.parentNode.getElementsByTagName('input')[0];
         inputEL.style.display = 'block';
         DateSelector(inputEL);
+    }
+    if(e.target.classList.contains('delTask')){
+
     }
     updateTaskUI();
 })
