@@ -65,8 +65,13 @@ export default function () {
 
                 dateInput.style.display = 'none';
 
+                let dataContainer = document.createElement('div');
+                dataContainer.classList.add('dataCont');
+
+
                 taskName.append(taskTitle, editTaskName);
-                newTask.append(taskName,dateCont, delTask);
+                dataContainer.append(dateCont, delTask)
+                newTask.append(taskName, dataContainer);
                 taskContainer.append(newTask)
             }
         }

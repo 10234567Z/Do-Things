@@ -96,22 +96,26 @@
 
 .taskDIV{
     background-color: rgba(238, 209, 44, 0.377);
+    gap: 0;
 }
 
 .taskDIV:hover{
     background-color: rgba(238, 209, 44, 0.477);
 }
 
-.delProject{
+.delProject,.delTask{
     font-family: 'pangolin';
     border-radius: 50%;
     transition: 0.2s all linear;
-    padding: 5px;
     padding-left: 10px;
     padding-right: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    color: red;
 }
 
-.delProject:hover{
+.delProject:hover,.delTask:hover{
     background-color: rgba(0, 0, 0, 0.4);
 }
 
@@ -194,9 +198,20 @@ input[type='date']{
 }
 
 .dateCont{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     align-self: flex-end;
+    border-right: 1px solid black;
+    padding-right: 5px;
 }
 
 .dateText{
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.dataCont{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
 }
