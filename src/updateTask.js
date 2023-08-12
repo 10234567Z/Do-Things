@@ -1,4 +1,4 @@
-import { projectLibrary , currentProject } from "./tasks";
+import { currentProject } from "./tasks";
 import { taskArea,taskHead } from ".";
 
 

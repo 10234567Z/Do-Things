@@ -1,5 +1,4 @@
 import { projectLibrary, currentProject } from "./tasks";
-import DateSelector, { dateSet } from "./jquery";
 
 
 export function Todo(title, date) {

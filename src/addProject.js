@@ -1,11 +1,6 @@
 import './style.css';
 import UIMaker from './addToUI.js'
-import TaskMaker, { projectLibrary } from './tasks.js';
-import { projectContainer } from './index.js';
-import deleteIcon from './Content/delete.svg'
-import plus from './Content/plus.svg';
-import Task from './tasks.js';
-
+import TaskMaker from './tasks.js';
 
 export default function () {
     if (document.querySelector('.formBG') === undefined || document.querySelector('.formBG') === null) {

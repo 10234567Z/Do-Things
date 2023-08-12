@@ -1,7 +1,7 @@
 import './style.css';
 import addProjectUI, { addProject } from './addProject.js'
 import deleteProject from './deleteProject.js'
-import changePName from './changeName.js'
+import changePName, { taskName } from './changeName.js'
 import TodoForm, { Todo } from './todoAdd.js';
 import { currentProject} from './tasks.js';
 import updateTaskUI from './updateTask.js';
@@ -84,6 +84,12 @@ document.addEventListener('click', e => {
             UIMaker();
         }
         e.target.parentNode.parentNode.remove();
+    }
+    if(e.target.classList.contains('taskTitle')){
+        e.target.parentNode.getElementsByTagName('p')[0].style.display = 'none';
+        let inputEL = e.target.parentNode.getElementsByTagName('input')[0];
+        inputEL.style.display = 'block';
+        taskName(inputEL);
     }
     updateTaskUI();
 })
