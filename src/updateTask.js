@@ -1,5 +1,6 @@
 import { currentProject } from "./tasks";
-import { taskArea,taskHead } from ".";
+import { taskArea,taskHead } from "./index.js";
+
 
 
 export default function updateTaskUI(){
@@ -11,4 +12,9 @@ export default function updateTaskUI(){
         taskArea.style.display = 'none';
         taskHead.style.display = 'none'
     }
+}
+
+
+export function updateDate(input){
+
 }

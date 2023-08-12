@@ -5,7 +5,7 @@ import changePName, { taskName } from './changeName.js'
 import TodoForm, { Todo } from './todoAdd.js';
 import { currentProject} from './tasks.js';
 import updateTaskUI from './updateTask.js';
-import DateSelector from './jquery.js';
+import DateSelector, { dateSet } from './jquery.js';
 import UIMaker from './addToUI'
 
 export let container = document.createElement('div');
@@ -73,9 +73,6 @@ document.addEventListener('click', e => {
     if (e.target.classList.contains('addTask')) {
         TodoForm(currentProject.name)
     }
-    if (e.target.classList.contains('dueDate')) {
-        DateSelector();
-    }
     if (e.target.classList.contains('submitTask')) {
         let dueDate = e.target.parentNode.getElementsByTagName('input')[1].value;
         let taskName = e.target.parentNode.getElementsByTagName('input')[0].value;
@@ -90,6 +87,12 @@ document.addEventListener('click', e => {
         let inputEL = e.target.parentNode.getElementsByTagName('input')[0];
         inputEL.style.display = 'block';
         taskName(inputEL);
+    }
+    if(e.target.classList.contains('dateText')){
+        e.target.parentNode.getElementsByTagName('p')[0].style.display = 'none';
+        let inputEL = e.target.parentNode.getElementsByTagName('input')[0];
+        inputEL.style.display = 'block';
+        DateSelector(inputEL);
     }
     updateTaskUI();
 })

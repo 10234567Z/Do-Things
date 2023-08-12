@@ -27,7 +27,7 @@ export default function TodoForm(name) {
     projectName.type = 'text';
     projectName.setAttribute('id', 'title')
     projectName.classList.add('title');
-    projectName.maxLength = '40'
+    projectName.maxLength = '50'
 
     let dateLabel = document.createElement('label');
     dateLabel.setAttribute('for', 'dueDate');
