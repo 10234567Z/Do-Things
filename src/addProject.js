@@ -32,8 +32,7 @@ export default function () {
 function NameValidation(name) {
     let validate = true;
     for (let i = 0; i < projectLibrary.length; i++) {
-        console.log(projectLibrary[i])
-        if (projectLibrary[i].name === name) {
+        if (projectLibrary[i].name.toUpperCase() === name.toUpperCase()) {
             validate = false;
             break;
         }
@@ -43,7 +42,6 @@ function NameValidation(name) {
 
 export function addProject(name) {
     let validation = NameValidation(name.value);
-    console.log(validation)
     if (name.value.trim() !== '' && validation) {
         new TaskMaker(name.value, 'No').AddToLibrary();
         document.querySelector('.formBG').remove();

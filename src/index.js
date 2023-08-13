@@ -2,7 +2,7 @@ import './style.css';
 import addProjectUI, { addProject } from './addProject.js'
 import deleteProject from './deleteProject.js'
 import changePName, { taskName } from './changeName.js'
-import TodoForm, { Todo } from './taskAdd.js';
+import TodoForm, { TaskMaker, Todo } from './taskAdd.js';
 import { currentProject} from './project';
 import updateTaskUI, { delTask } from './updateTask.js';
 import DateSelector, { dateSet } from './jquery.js';
@@ -76,10 +76,7 @@ document.addEventListener('click', e => {
     if (e.target.classList.contains('submitTask')) {
         let dueDate = e.target.parentNode.getElementsByTagName('input')[1].value;
         let taskName = e.target.parentNode.getElementsByTagName('input')[0].value;
-        if(dueDate.trim() !== '' && taskName.trim() !== ''){
-            new Todo(taskName, dueDate).AddToDo();
-            UIMaker();
-        }
+        TaskMaker(taskName,dueDate);
         e.target.parentNode.parentNode.remove();
     }
     if(e.target.classList.contains('taskTitle')){

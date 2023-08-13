@@ -1,4 +1,5 @@
 import { projectLibrary, currentProject } from "./project";
+import UIMaker from "./addToUI"
 
 
 export function Todo(title, date) {
@@ -45,4 +46,23 @@ export default function TodoForm(name) {
     formArea.classList.add('formArea');
     formBG.append(formArea);
     formArea.append(nameLabel, projectName, dateLabel, dueDate, submitButton);
+}
+function NameValidation(name) {
+    let validate = true;
+    let index = projectLibrary.findIndex(e => currentProject.name === e.name)
+    for (let i = 0; i < projectLibrary[index].todoArea.length; i++) {
+        if (projectLibrary[index].todoArea[i].title.toUpperCase() === name.toUpperCase()) {
+            validate = false;
+            break;
+        }
+    }
+    return validate;
+}
+
+export function TaskMaker(name , date){
+    let validation = NameValidation(name)
+    if(date.trim() !== '' && name.trim() !== '' && validation){
+        new Todo(name, date).AddToDo();
+        UIMaker();
+    }
 }
