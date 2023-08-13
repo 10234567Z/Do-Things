@@ -12,12 +12,12 @@ export let container = document.createElement('div');
 container.classList.add('container');
 document.querySelector('body').appendChild(container);
 
-let sideHead = document.createElement('h1');
-sideHead.classList.add('sideHead');
-sideHead.innerHTML = 'Projects';
+let projectHead = document.createElement('h1');
+projectHead.classList.add('projectHead');
+projectHead.innerHTML = 'Projects';
 
-let sideBar = document.createElement('div');
-sideBar.classList.add('sidebar');
+let projectNAV = document.createElement('div');
+projectNAV.classList.add('projectbar');
 
 export let projectContainer = document.createElement('div');
 projectContainer.classList.add('projectContainer');
@@ -40,8 +40,8 @@ taskContainer.classList.add('taskContainer');
 export let taskArea = document.createElement('div');
 taskArea.classList.add('taskArea');
 taskArea.append(addTask, taskContainer)
-sideBar.append(addButton, projectContainer)
-container.append(sideHead, sideBar, taskHead, taskArea)
+projectNAV.append(addButton, projectContainer)
+container.append(projectHead, projectNAV, taskHead, taskArea)
 taskArea.style.display = 'none';
 taskHead.style.display = 'none';
 
