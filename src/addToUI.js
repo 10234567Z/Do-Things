@@ -1,4 +1,4 @@
-import { currentProject, projectLibrary } from "./tasks";
+import { currentProject, projectLibrary } from "./project";
 import { projectContainer, taskContainer } from "./index.js";
 
 

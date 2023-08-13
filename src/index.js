@@ -2,8 +2,8 @@ import './style.css';
 import addProjectUI, { addProject } from './addProject.js'
 import deleteProject from './deleteProject.js'
 import changePName, { taskName } from './changeName.js'
-import TodoForm, { Todo } from './todoAdd.js';
-import { currentProject} from './tasks.js';
+import TodoForm, { Todo } from './taskAdd.js';
+import { currentProject} from './project';
 import updateTaskUI, { delTask } from './updateTask.js';
 import DateSelector, { dateSet } from './jquery.js';
 import UIMaker from './addToUI'

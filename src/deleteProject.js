@@ -1,4 +1,4 @@
-import { projectLibrary , currentProject } from "./tasks";
+import { projectLibrary , currentProject } from "./project";
 
 
 export default function(name){

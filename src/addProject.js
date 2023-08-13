@@ -1,6 +1,6 @@
 import './style.css';
 import UIMaker from './addToUI.js'
-import TaskMaker from './tasks.js';
+import TaskMaker, { projectLibrary } from './project';
 
 export default function () {
     if (document.querySelector('.formBG') === undefined || document.querySelector('.formBG') === null) {
@@ -29,9 +29,22 @@ export default function () {
     formArea.append(nameLabel, projectName, submitButton);
 }
 
+function NameValidation(name) {
+    let validate = true;
+    for (let i = 0; i < projectLibrary.length; i++) {
+        console.log(projectLibrary[i])
+        if (projectLibrary[i].name === name) {
+            validate = false;
+            break;
+        }
+    }
+    return validate;
+}
 
 export function addProject(name) {
-    if (name.value.trim() !== '') {
+    let validation = NameValidation(name.value);
+    console.log(validation)
+    if (name.value.trim() !== '' && validation) {
         new TaskMaker(name.value, 'No').AddToLibrary();
         document.querySelector('.formBG').remove();
         UIMaker();
