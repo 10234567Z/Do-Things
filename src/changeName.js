@@ -1,4 +1,4 @@
-import { projectLibrary, currentProject } from "./project";
+import { projectLibrary, currentProject, SetLibraryStorage } from "./project";
 
 export default function (input) {
     input.select();
@@ -10,6 +10,7 @@ export default function (input) {
             input.parentNode.getElementsByTagName('p')[0].style.display = 'block';
             projectLibrary[index].name = input.value
             currentProject.name = input.value;
+            SetLibraryStorage();
         }
     })
 }
@@ -24,6 +25,7 @@ export function taskName(input){
             input.parentNode.getElementsByTagName('p')[0].innerHTML = input.value;
             input.parentNode.getElementsByTagName('p')[0].style.display = 'block';
             projectLibrary[index].todoArea[innerIndex].title = input.value;
+            SetLibraryStorage();
         }
     })
 }

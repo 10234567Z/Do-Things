@@ -1,4 +1,4 @@
-import { projectLibrary, currentProject } from "./project";
+import { projectLibrary, currentProject, SetLibraryStorage } from "./project";
 import UIMaker from "./addToUI"
 
 
@@ -64,5 +64,6 @@ export function TaskMaker(name , date){
     if(date.trim() !== '' && name.trim() !== '' && validation){
         new Todo(name, date).AddToDo();
         UIMaker();
+        SetLibraryStorage();
     }
 }

@@ -1,4 +1,4 @@
-import { currentProject, projectLibrary } from "./project.js";
+import { SetLibraryStorage, currentProject, projectLibrary } from "./project.js";
 import { taskArea,taskHead } from "./index.js";
 
 
@@ -19,4 +19,5 @@ export function delTask(input){
     let index = projectLibrary.findIndex(e => currentProject.name === e.name)
     let innerIndex = projectLibrary[index].todoArea.findIndex(x => x.title === input.value);
     projectLibrary[index].todoArea.splice(innerIndex , 1);
+    SetLibraryStorage();
 }

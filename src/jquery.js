@@ -1,5 +1,5 @@
 import jQuery from "jquery";
-import { projectLibrary,currentProject } from "./project";
+import { projectLibrary,currentProject, SetLibraryStorage } from "./project";
 window.$ = window.jQuery = jQuery;
 
 
@@ -13,5 +13,6 @@ export default function DateSelector(input) {
         input.parentNode.getElementsByTagName('p')[0].innerHTML = input.value;
         input.parentNode.getElementsByTagName('p')[0].style.display = 'block';
         projectLibrary[index].todoArea[innerIndex].date = input.value;
+        SetLibraryStorage();
     });
 }

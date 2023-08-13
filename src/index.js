@@ -3,9 +3,9 @@ import addProjectUI, { addProject } from './addProject.js'
 import deleteProject from './deleteProject.js'
 import changePName, { taskName } from './changeName.js'
 import TodoForm, { TaskMaker, Todo } from './taskAdd.js';
-import { currentProject} from './project';
+import { currentProject , SetLibraryStorage , GetLibraryStorage} from './project';
 import updateTaskUI, { delTask } from './updateTask.js';
-import DateSelector, { dateSet } from './jquery.js';
+import DateSelector from './jquery.js';
 import UIMaker from './addToUI'
 
 export let container = document.createElement('div');
@@ -104,3 +104,5 @@ document.addEventListener('keypress', e => {
         e.preventDefault();
     }
 })
+
+GetLibraryStorage();

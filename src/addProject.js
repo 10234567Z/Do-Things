@@ -1,6 +1,6 @@
 import './style.css';
 import UIMaker from './addToUI.js'
-import TaskMaker, { projectLibrary } from './project';
+import TaskMaker, { SetLibraryStorage, projectLibrary } from './project';
 
 export default function () {
     if (document.querySelector('.formBG') === undefined || document.querySelector('.formBG') === null) {
@@ -45,6 +45,7 @@ export function addProject(name) {
     if (name.value.trim() !== '' && validation) {
         new TaskMaker(name.value, 'No').AddToLibrary();
         document.querySelector('.formBG').remove();
+        SetLibraryStorage();
         UIMaker();
     }
     else {
