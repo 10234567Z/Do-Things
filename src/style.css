@@ -25,27 +25,29 @@
 
 .taskHead{
     font-family: "tektur" , cursive;
+    align-self: end;
 }
 
 .container{
     height: 100vh;
     width: 100vw;
     display: grid;
-    grid-template-rows: fit-content(30%) auto auto auto;
+    grid-template-rows: fit-content(30%) fit-content(30%) 100px auto;
     justify-items: center;
     gap: 10px;
 }
 
 .projectbar{
     grid-area: 2/1/3/2;
-    border-right: 1px ridge rgba(0, 0, 0, 0.6);
-    width: 100%;
+    width: 90%;
     display: grid;
     grid-template-rows: fit-content(60px) fit-content(300px);
     justify-items: center;
     grid-auto-flow: dense;
     border-top: 1px solid black;
     padding-top: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .addProject,.submit,.submitTask{
@@ -79,6 +81,7 @@
 
 .projectContainer::-webkit-scrollbar-track{
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 7px;
 	background-color: #F5F5F5;
 }
 
@@ -88,6 +91,7 @@
 }
 
 .projectContainer::-webkit-scrollbar-thumb{
+    border-radius: 7px;
     background-color: #000000;
 }
 
@@ -102,19 +106,33 @@
     font-size: 1.3rem;
     gap: 15px;
     transition: 0.2s all linear;
-    border-radius: 15px;
+    border-radius: 5px;
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.2);
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1rem;
+}
+
+.taskDIV{
+    background-color: rgba(238, 209, 44, 0.377);
+    gap: 0;
+    margin: 0;
+    margin-top: 10px;
+    font-size: 1rem;
+    width: 50%;
+}
+
+.projectDIV:last-child{
+    margin-right: 10px;
 }
 
 .projectDIV:hover{
     background-color: rgba(0, 0, 0, 0.3);
 }
 
-.taskDIV{
-    background-color: rgba(238, 209, 44, 0.377);
-    gap: 0;
+.taskName{
+    inline-size: 50%;
+    overflow-wrap: break-word;
 }
 
 .taskDIV:hover{
@@ -195,21 +213,26 @@ label{
 .taskArea{
     display: grid;
     grid-template-rows: 50px auto;
-    place-items: flex-start;
     width: 100%;
-    height: 100%;
+    justify-items: center;
+    transition: 0.3s all linear;
 }
 
 .taskContainer{
     height: 100%;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    border-top: 1px solid black;
+    padding-top: 10px;
 }
 
 .addTask{
     padding: 5px;
     font-size: medium;
 }
-
 
 input[type='date']{
     padding: 5px;
@@ -236,3 +259,10 @@ input[type='date']{
     flex-direction: row;
     gap: 5px;
 }
+
+@media screen and (max-width: 640px) {
+    .taskDIV{
+        width: 100px;
+    }
+}
+
