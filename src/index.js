@@ -45,6 +45,8 @@ container.append(projectHead, projectNAV, taskHead, taskArea)
 taskArea.style.display = 'none';
 taskHead.style.display = 'none';
 
+
+/** All the event listeners needed in this project */
 document.addEventListener('click', e => {
     if (e.target.classList.contains('addProject') && !(e.target.classList.contains('addTask'))) {
         addProjectUI();
@@ -99,10 +101,12 @@ document.addEventListener('click', e => {
     updateTaskUI();
 })
 
+/** For preventing any unexpected behaviour from enter presses */
 document.addEventListener('keypress', e => {
     if (e.key === 'Enter') {
         e.preventDefault();
     }
 })
 
+/** After loading all UI , load data from library storage */
 GetLibraryStorage();

@@ -1,7 +1,7 @@
 import { projectLibrary, currentProject, SetLibraryStorage } from "./project";
 import UIMaker from "./addToUI"
 
-
+/** Constructor function for Task */
 export function Todo(title, date) {
     this.title = title;
     this.date = date;
@@ -14,11 +14,16 @@ export function Todo(title, date) {
 
 
 export default function TodoForm(name) {
+    /** If form dont exists , make one */
     if (document.querySelector('.formBG') === undefined || document.querySelector('.formBG') === null) {
         let formBG = document.createElement('div');
         formBG.classList.add('formBG', 'taskForm');
         document.querySelector('body').append(formBG);
     }
+
+    /**
+     * Basically making UI for task add form and appending it to document
+     */
     let formBG = document.querySelector('.formBG');
 
     let nameLabel = document.createElement('label');
@@ -48,6 +53,7 @@ export default function TodoForm(name) {
     formArea.append(nameLabel, projectName, dateLabel, dueDate, submitButton);
 }
 function NameValidation(name) {
+    /** Name Invalidation if same name to previously made tasks of same project */
     let validate = true;
     let index = projectLibrary.findIndex(e => currentProject.name === e.name)
     for (let i = 0; i < projectLibrary[index].todoArea.length; i++) {
@@ -59,6 +65,7 @@ function NameValidation(name) {
     return validate;
 }
 
+/** If validations are satisfied , make the new task and also update local storage */
 export function TaskMaker(name , date){
     let validation = NameValidation(name)
     if(date.trim() !== '' && name.trim() !== '' && validation){

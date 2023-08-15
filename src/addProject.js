@@ -1,13 +1,16 @@
 import './style.css';
 import UIMaker from './addToUI.js'
-import TaskMaker, { SetLibraryStorage, projectLibrary } from './project';
+import ProjectMaker, { SetLibraryStorage, projectLibrary } from './project';
 
 export default function () {
+    /** If form bg dont exist , make it */
     if (document.querySelector('.formBG') === undefined || document.querySelector('.formBG') === null) {
         let formBG = document.createElement('div');
         formBG.classList.add('formBG');
         document.querySelector('body').append(formBG);
     }
+
+    /** Basically making UI element for add form and appending it to document */
     let formBG = document.querySelector('.formBG');
 
     let nameLabel = document.createElement('label');
@@ -30,6 +33,7 @@ export default function () {
 }
 
 function NameValidation(name) {
+    /** Name invalidation for the same names */
     let validate = true;
     for (let i = 0; i < projectLibrary.length; i++) {
         if (projectLibrary[i].name.toUpperCase() === name.toUpperCase()) {
@@ -41,9 +45,12 @@ function NameValidation(name) {
 }
 
 export function addProject(name) {
+    /** After checking through name validation make a new  project and add it to 2d ARRAY of project 
+     * library then sync it to UI and local storage otherwise close the form without creating anything 
+     */
     let validation = NameValidation(name.value);
     if (name.value.trim() !== '' && validation) {
-        new TaskMaker(name.value, 'No').AddToLibrary();
+        new ProjectMaker(name.value, 'No').AddToLibrary();
         document.querySelector('.formBG').remove();
         SetLibraryStorage();
         UIMaker();

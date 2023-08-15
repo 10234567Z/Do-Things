@@ -5,6 +5,8 @@ import { projectContainer, taskContainer } from "./index.js";
 export default function () {
     taskContainer.innerHTML = '';
     projectContainer.innerHTML = ''
+
+    /** Basically just synchs the whole UI while taking data from the projectlibrary array after any change to array */
     for (let i = 0; i < projectLibrary.length; i++) {
         let newProject = document.createElement('div');
         newProject.classList.add('projectDIV');

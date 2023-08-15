@@ -2,7 +2,11 @@ import { projectLibrary, currentProject, SetLibraryStorage } from "./project";
 
 export default function (input) {
     input.select();
+    /** Getting project index */
     let index = projectLibrary.findIndex(e => input.value === e.name);
+
+    /** Upon pressing enter , if it passes the validation it will make a new project while also
+     * storing in local storage otherwise it will simply close form */
     input.addEventListener('keypress', e => {
         if (e.key === 'Enter') {
             let validation = ProjectNameValidation(input.value);
@@ -20,8 +24,13 @@ export default function (input) {
 
 export function taskName(input){
     input.select();
+
+    /** Getting task and project index */
     let index = projectLibrary.findIndex(e => currentProject.name === e.name)
     let innerIndex = projectLibrary[index].todoArea.findIndex(x => x.title === input.value);
+
+    /** Upon pressing enter , if it passes the validation it will make a new task while also
+     * storing in local storage otherwise it will simply close form */
     input.addEventListener('keypress', e => {
         if (e.key === 'Enter') {
             let validation = TaskNameValidation(input.value);
@@ -36,6 +45,11 @@ export function taskName(input){
     })
 }
 
+
+/**
+ * Following two functions are for name invalidation of same names as the ones previously used
+ * on other project or task
+ */
 function TaskNameValidation(name) {
     let validate = true;
     let index = projectLibrary.findIndex(e => currentProject.name === e.name)
